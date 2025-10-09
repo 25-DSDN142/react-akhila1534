@@ -9,7 +9,7 @@ function drawInteraction(faces, hands) {
   // for loop to capture if there is more than one face on the screen. This applies the same process to all faces. 
   for (let i = 0; i < faces.length; i++) {
     let face = faces[i]; // face holds all the keypoints of the face\
-    console.log(face);
+    // console.log(face);
     if (showKeypoints) {
       drawPoints(face)
     }
@@ -61,26 +61,32 @@ function drawInteraction(faces, hands) {
 
     let noseTipX = face.keypoints[4].x;
     let noseTipY = face.keypoints[4].y;
+
+    let mouthLeftX = face.keypoints[61].x;
+    let mouthLeftY = face.keypoints[61].y;
+    
+    // let eyeLeftX = face.keypoints[468].x;
+    // let eyeLeftY = face.keypoints[468].y;
     /*
     Start drawing on the face here
     */
-    noStroke()
+    // noStroke()
     fill(225, 225, 0);
     // fill(get(leftEyeCenterX, leftEyeCenterY))
 
     ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
 
-    drawPoints(face.leftEye);
-    drawPoints(face.leftEyebrow);
-    drawPoints(face.lips);
-    drawPoints(face.rightEye);
-    drawPoints(face.rightEyebrow);
+    // drawPoints(face.leftEye);
+    // drawPoints(face.leftEyebrow);
+    // drawPoints(face.lips);
+    // drawPoints(face.rightEye);
+    // drawPoints(face.rightEyebrow);
 
-    // drawX(rightEyeCenterX,rightEyeCenterY);
-    // drawX(leftEyeCenterX,leftEyeCenterY);
+    // fingerPuppet(rightEyeCenterX,rightEyeCenterY);
+    // fingerPuppet(leftEyeCenterX,leftEyeCenterY);
 
 
-    // drawX(noseTipX,noseTipY); 
+    drawX(noseTipX,noseTipY); 
 
     // drawX(face.keypoints[332].x,face.keypoints[332].y);
     // drawX(face.keypoints[103].x,face.keypoints[103].y);
@@ -93,6 +99,16 @@ function drawInteraction(faces, hands) {
   }
   //------------------------------------------------------
   // You can make addtional elements here, but keep the face drawing inside the for loop. 
+}
+
+function fingerPuppet(x, y) {
+  fill(255, 38, 219) // pink
+  ellipse(x, y, 100, 20)
+  ellipse(x, y, 20, 100)
+
+  fill(255, 252, 48) // yellow
+  ellipse(x, y, 20) // draw center 
+
 }
 
 function drawX(X, Y) {
