@@ -59,24 +59,122 @@ function drawInteraction(faces, hands) {
     let rightEyebrowWidth = face.rightEyebrow.width;
     let rightEyebrowHeight = face.rightEyebrow.height;
 
-    let noseTipX = face.keypoints[4].x;
-    let noseTipY = face.keypoints[4].y;
+// let noseTipX = face.keypoints[4].x;
+// let noseTipY = face.keypoints[4].y;
+// let mouthLeftX = face.keypoints[13].x;
+// let mouthLeftY = face.keypoints[13].y;
+// let eyeLeftX = face.keypoints[468].x;
+// let eyeLeftY = face.keypoints[468].y;
+/*
+Start drawing on the face here
+*/
+noStroke();
+fill(56,118,29); // green
+triangle(
+  face.keypoints[336].x, face.keypoints[336].y, // base left (top left of mask)
+  face.keypoints[336].x + faceWidth * 0.25, face.keypoints[336].y - faceheight * 0.5, // tip (above mask)
+  face.keypoints[336].x + faceWidth * 0.35, face.keypoints[336].y // base right (top left of mask)
+);
 
-    let mouthLeftX = face.keypoints[61].x;
-    let mouthLeftY = face.keypoints[61].y;
-    
-    // let eyeLeftX = face.keypoints[468].x;
-    // let eyeLeftY = face.keypoints[468].y;
-    /*
-    Start drawing on the face here
-    */
+// Right horn (connects to right top of mask)
+triangle(
+  face.keypoints[107].x, face.keypoints[107].y, // base right (top right of mask)
+  face.keypoints[107].x - faceWidth * 0.25, face.keypoints[107].y - faceheight * 0.5, // tip (above mask)
+  face.keypoints[107].x - faceWidth * 0.35, face.keypoints[107].y // base left (top right of mask)
+);
     // noStroke()
-    fill(225, 225, 0);
+    fill(56,118,29) // green
+    beginShape()
+    vertex(face.keypoints[127].x, face.keypoints[127].y)
+    vertex(face.keypoints[34].x, face.keypoints[34].y)
+    vertex(face.keypoints[139].x, face.keypoints[139].y)
+    vertex(face.keypoints[162].x, face.keypoints[162].y)
+    vertex(face.keypoints[21].x, face.keypoints[21].y)
+    vertex(face.keypoints[54].x, face.keypoints[54].y)
+    vertex(face.keypoints[103].x, face.keypoints[103].y)
+    vertex(face.keypoints[67].x, face.keypoints[67].y)
+    vertex(face.keypoints[109].x, face.keypoints[109].y)
+    vertex(face.keypoints[10].x, face.keypoints[10].y)
+    vertex(face.keypoints[338].x, face.keypoints[338].y)
+    vertex(face.keypoints[297].x, face.keypoints[297].y)
+    vertex(face.keypoints[332].x, face.keypoints[332].y)
+    vertex(face.keypoints[284].x, face.keypoints[284].y)
+    vertex(face.keypoints[251].x, face.keypoints[251].y)
+    vertex(face.keypoints[389].x, face.keypoints[389].y)
+    vertex(face.keypoints[356].x, face.keypoints[356].y)
+    vertex(face.keypoints[454].x, face.keypoints[454].y)
+    vertex(face.keypoints[323].x, face.keypoints[323].y)
+    vertex(face.keypoints[361].x, face.keypoints[361].y)
+    vertex(face.keypoints[288].x, face.keypoints[288].y)
+    vertex(face.keypoints[397].x, face.keypoints[397].y)
+    vertex(face.keypoints[365].x, face.keypoints[365].y)
+    vertex(face.keypoints[379].x, face.keypoints[379].y)
+    vertex(face.keypoints[378].x, face.keypoints[378].y)
+    vertex(face.keypoints[400].x, face.keypoints[400].y)
+    vertex(face.keypoints[377].x, face.keypoints[377].y)
+    vertex(face.keypoints[152].x, face.keypoints[152].y)
+    vertex(face.keypoints[148].x, face.keypoints[148].y)
+    vertex(face.keypoints[176].x, face.keypoints[176].y)  
+    vertex(face.keypoints[149].x, face.keypoints[149].y)  
+    vertex(face.keypoints[150].x, face.keypoints[150].y)  
+    vertex(face.keypoints[136].x, face.keypoints[136].y)  
+    vertex(face.keypoints[172].x, face.keypoints[172].y)  
+    vertex(face.keypoints[58].x, face.keypoints[58].y)  
+    vertex(face.keypoints[132].x, face.keypoints[132].y)  
+    vertex(face.keypoints[93].x, face.keypoints[93].y)  
+    vertex(face.keypoints[234].x, face.keypoints[234].y)  
+    vertex(face.keypoints[127].x, face.keypoints[127].y)
+endShape(CLOSE);
+
+// // Horns
+// fill(56,118,29); // red horns, change color as you like
+
+
+// Left horn (connects to left top of mask)
+// noStroke();
+// triangle(
+//   face.keypoints[334].x, face.keypoints[334].y, // base left (top left of mask)
+//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y - faceheight * 0.5, // tip (above mask)
+//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y // base right (top left of mask)
+// );
+
+// // Right horn (connects to right top of mask)
+// triangle(
+//   face.keypoints[66].x, face.keypoints[66].y, // base right (top right of mask)
+//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y - faceheight * 0.5, // tip (above mask)
+//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y // base left (top right of mask)
+// );
+// // Left horn
+// triangle(
+//   faceCenterX - faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base left
+//   faceCenterX - faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
+//   faceCenterX - faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base right
+// );
+
+// // Right horn
+// triangle(
+//   faceCenterX + faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base right
+//   faceCenterX + faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
+//   faceCenterX + faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base left
+// );
+
+erase();
+// Eye holes
+ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
+ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
+
+// Mouth hole
+ellipse(lipsCenterX, lipsCenterY, lipsWidth, lipsHeight);
+noErase();
+
+
     // fill(get(leftEyeCenterX, leftEyeCenterY))
 
-    ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
+    // ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
+    // ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
 
-    // drawPoints(face.leftEye);
+    // ellipse(lipsCenterX, lipsCenterY, lipsWidth, lipsHeight);
+    // // drawPoints(face.leftEye);
     // drawPoints(face.leftEyebrow);
     // drawPoints(face.lips);
     // drawPoints(face.rightEye);
@@ -85,8 +183,10 @@ function drawInteraction(faces, hands) {
     // fingerPuppet(rightEyeCenterX,rightEyeCenterY);
     // fingerPuppet(leftEyeCenterX,leftEyeCenterY);
 
+    // fingerPuppet2(mouthLeftX,mouthLeftY);
 
-    drawX(noseTipX,noseTipY); 
+
+    // drawX(noseTipX,noseTipY); 
 
     // drawX(face.keypoints[332].x,face.keypoints[332].y);
     // drawX(face.keypoints[103].x,face.keypoints[103].y);
@@ -105,12 +205,16 @@ function fingerPuppet(x, y) {
   fill(255, 38, 219) // pink
   ellipse(x, y, 100, 20)
   ellipse(x, y, 20, 100)
-
+  fill (24, 74, 240) // blue
+  circle (x, y, 50) // draw center
   fill(255, 252, 48) // yellow
   ellipse(x, y, 20) // draw center 
 
 }
-
+// function fingerPuppet2 (x, y) {
+//   fill(255, 38, 219) // pink
+// ellipse(x, y, 150, 30)
+// } 
 function drawX(X, Y) {
   push()
 
