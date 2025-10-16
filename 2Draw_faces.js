@@ -4,6 +4,12 @@ function prepareInteraction() {
   //bgImage = loadImage('/images/background.png');
 }
 
+let maskImg;
+
+function preload() {
+  maskImg = loadImage('chromakopia mask.png'); // update path if needed
+}
+
 function drawInteraction(faces, hands) {
 
   // for loop to capture if there is more than one face on the screen. This applies the same process to all faces. 
@@ -68,6 +74,12 @@ function drawInteraction(faces, hands) {
 /*
 Start drawing on the face here
 */
+
+
+imageMode(CENTER);
+image(maskImg, faceCenterX, faceCenterY, faceWidth, faceheight);
+
+
 noStroke();
 fill(56,118,29); // green
 triangle(
@@ -126,37 +138,6 @@ triangle(
     vertex(face.keypoints[127].x, face.keypoints[127].y)
 endShape(CLOSE);
 
-// // Horns
-// fill(56,118,29); // red horns, change color as you like
-
-
-// Left horn (connects to left top of mask)
-// noStroke();
-// triangle(
-//   face.keypoints[334].x, face.keypoints[334].y, // base left (top left of mask)
-//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y - faceheight * 0.5, // tip (above mask)
-//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y // base right (top left of mask)
-// );
-
-// // Right horn (connects to right top of mask)
-// triangle(
-//   face.keypoints[66].x, face.keypoints[66].y, // base right (top right of mask)
-//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y - faceheight * 0.5, // tip (above mask)
-//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y // base left (top right of mask)
-// );
-// // Left horn
-// triangle(
-//   faceCenterX - faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base left
-//   faceCenterX - faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
-//   faceCenterX - faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base right
-// );
-
-// // Right horn
-// triangle(
-//   faceCenterX + faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base right
-//   faceCenterX + faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
-//   faceCenterX + faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base left
-// );
 
 erase();
 // Eye holes
@@ -167,39 +148,6 @@ ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
 ellipse(lipsCenterX, lipsCenterY, lipsWidth, lipsHeight);
 noErase();
 
-
-    // fill(get(leftEyeCenterX, leftEyeCenterY))
-
-    // ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
-    // ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
-
-    // ellipse(lipsCenterX, lipsCenterY, lipsWidth, lipsHeight);
-    // // drawPoints(face.leftEye);
-    // drawPoints(face.leftEyebrow);
-    // drawPoints(face.lips);
-    // drawPoints(face.rightEye);
-    // drawPoints(face.rightEyebrow);
-
-    // fingerPuppet(rightEyeCenterX,rightEyeCenterY);
-    // fingerPuppet(leftEyeCenterX,leftEyeCenterY);
-
-    // fingerPuppet2(mouthLeftX,mouthLeftY);
-
-
-    // drawX(noseTipX,noseTipY); 
-
-    // drawX(face.keypoints[332].x,face.keypoints[332].y);
-    // drawX(face.keypoints[103].x,face.keypoints[103].y);
-
-
-    /*
-    Stop drawing on the face here
-    */
-
-  }
-  //------------------------------------------------------
-  // You can make addtional elements here, but keep the face drawing inside the for loop. 
-}
 
 function fingerPuppet(x, y) {
   fill(255, 38, 219) // pink
@@ -238,4 +186,69 @@ function drawPoints(feature) {
   }
   pop()
 
+}
+
+// // Horns
+// fill(56,118,29); // red horns, change color as you like
+
+
+// Left horn (connects to left top of mask)
+// noStroke();
+// triangle(
+//   face.keypoints[334].x, face.keypoints[334].y, // base left (top left of mask)
+//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y - faceheight * 0.5, // tip (above mask)
+//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y // base right (top left of mask)
+// );
+
+// // Right horn (connects to right top of mask)
+// triangle(
+//   face.keypoints[66].x, face.keypoints[66].y, // base right (top right of mask)
+//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y - faceheight * 0.5, // tip (above mask)
+//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y // base left (top right of mask)
+// );
+// // Left horn
+// triangle(
+//   faceCenterX - faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base left
+//   faceCenterX - faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
+//   faceCenterX - faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base right
+// );
+
+// // Right horn
+// triangle(
+//   faceCenterX + faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base right
+//   faceCenterX + faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
+//   faceCenterX + faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base left
+// );
+
+    // fill(get(leftEyeCenterX, leftEyeCenterY))
+
+    // ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
+    // ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
+
+    // ellipse(lipsCenterX, lipsCenterY, lipsWidth, lipsHeight);
+    // // drawPoints(face.leftEye);
+    // drawPoints(face.leftEyebrow);
+    // drawPoints(face.lips);
+    // drawPoints(face.rightEye);
+    // drawPoints(face.rightEyebrow);
+
+    // fingerPuppet(rightEyeCenterX,rightEyeCenterY);
+    // fingerPuppet(leftEyeCenterX,leftEyeCenterY);
+
+    // fingerPuppet2(mouthLeftX,mouthLeftY);
+
+
+    // drawX(noseTipX,noseTipY); 
+
+    // drawX(face.keypoints[332].x,face.keypoints[332].y);
+    // drawX(face.keypoints[103].x,face.keypoints[103].y);
+
+
+    /*
+    Stop drawing on the face here
+    */
+
+  }
+  //------------------------------------------------------
+  // You can make addtional elements here, but keep the face drawing inside the for loop. 
 }
