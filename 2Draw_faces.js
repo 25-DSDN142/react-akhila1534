@@ -1,6 +1,6 @@
 // ----=  Faces  =----
 /* load images here */
-let bgImg; 
+let bgImage; 
 function prepareInteraction() {
   bgImage = loadImage('chromakopia mask.png');
 }
@@ -77,8 +77,6 @@ Start drawing on the face here
 */
 
 
-imageMode(CENTER);
-image(bgImg, faceCenterX, faceCenterY, faceWidth, faceheight);
 
 
 noStroke();
@@ -149,6 +147,10 @@ ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
 ellipse(lipsCenterX, lipsCenterY, lipsWidth, lipsHeight);
 noErase();
 
+push();
+imageMode(CENTER);
+image(bgImage, faceCenterX, faceCenterY - faceheight * 0.38, faceWidth+400, faceheight+400);
+pop();
 
 function fingerPuppet(x, y) {
   fill(255, 38, 219) // pink
