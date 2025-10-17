@@ -43,11 +43,6 @@ function drawInteraction(faces, hands) {
     let leftEyeWidth = face.leftEye.width;
     let leftEyeHeight = face.leftEye.height;
     // Left eyebrow
-    let leftEyebrowCenterX = face.leftEyebrow.centerX;
-    let leftEyebrowCenterY = face.leftEyebrow.centerY;
-    let leftEyebrowWidth = face.leftEyebrow.width;
-    let leftEyebrowHeight = face.leftEyebrow.height;
-
     // Lips
     let lipsCenterX = face.lips.centerX;
     let lipsCenterY = face.lips.centerY;
@@ -60,25 +55,8 @@ function drawInteraction(faces, hands) {
     let rightEyeWidth = face.rightEye.width;
     let rightEyeHeight = face.rightEye.height;
 
-    // Right eyebrow
-    let rightEyebrowCenterX = face.rightEyebrow.centerX;
-    let rightEyebrowCenterY = face.rightEyebrow.centerY;
-    let rightEyebrowWidth = face.rightEyebrow.width;
-    let rightEyebrowHeight = face.rightEyebrow.height;
 
-// let noseTipX = face.keypoints[4].x;
-// let noseTipY = face.keypoints[4].y;
-// let mouthLeftX = face.keypoints[13].x;
-// let mouthLeftY = face.keypoints[13].y;
-// let eyeLeftX = face.keypoints[468].x;
-// let eyeLeftY = face.keypoints[468].y;
-/*
-Start drawing on the face here
-*/
-
-
-
-
+   
 noStroke();
 fill(56,118,29); // green
 triangle(
@@ -152,29 +130,6 @@ imageMode(CENTER);
 image(bgImage, faceCenterX, faceCenterY - faceheight * 0.38, faceWidth+400, faceheight+400);
 pop();
 
-function fingerPuppet(x, y) {
-  fill(255, 38, 219) // pink
-  ellipse(x, y, 100, 20)
-  ellipse(x, y, 20, 100)
-  fill (24, 74, 240) // blue
-  circle (x, y, 50) // draw center
-  fill(255, 252, 48) // yellow
-  ellipse(x, y, 20) // draw center 
-
-}
-// function fingerPuppet2 (x, y) {
-//   fill(255, 38, 219) // pink
-// ellipse(x, y, 150, 30)
-// } 
-function drawX(X, Y) {
-  push()
-
-  strokeWeight(15)
-  line(X - 20, Y - 20, X + 20, Y + 20)
-  line(X - 20, Y + 20, X + 20, Y - 20)
-
-  pop()
-}
 
 
 // This function draw's a dot on all the keypoints. It can be passed a whole face, or part of one. 
@@ -191,67 +146,7 @@ function drawPoints(feature) {
 
 }
 
-// // Horns
-// fill(56,118,29); // red horns, change color as you like
-
-
-// Left horn (connects to left top of mask)
-// noStroke();
-// triangle(
-//   face.keypoints[334].x, face.keypoints[334].y, // base left (top left of mask)
-//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y - faceheight * 0.5, // tip (above mask)
-//   face.keypoints[334].x + faceWidth * 0.2, face.keypoints[334].y // base right (top left of mask)
-// );
-
-// // Right horn (connects to right top of mask)
-// triangle(
-//   face.keypoints[66].x, face.keypoints[66].y, // base right (top right of mask)
-//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y - faceheight * 0.5, // tip (above mask)
-//   face.keypoints[66].x - faceWidth * 0.2, face.keypoints[66].y // base left (top right of mask)
-// );
-// // Left horn
-// triangle(
-//   faceCenterX - faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base left
-//   faceCenterX - faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
-//   faceCenterX - faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base right
-// );
-
-// // Right horn
-// triangle(
-//   faceCenterX + faceWidth * 0.4, faceCenterY - faceheight * 0.6, // base right
-//   faceCenterX + faceWidth * 0.2, faceCenterY - faceheight * 0.95, // tip
-//   faceCenterX + faceWidth * 0.1, faceCenterY - faceheight * 0.6  // base left
-// );
-
-    // fill(get(leftEyeCenterX, leftEyeCenterY))
-
-    // ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
-    // ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
-
-    // ellipse(lipsCenterX, lipsCenterY, lipsWidth, lipsHeight);
-    // // drawPoints(face.leftEye);
-    // drawPoints(face.leftEyebrow);
-    // drawPoints(face.lips);
-    // drawPoints(face.rightEye);
-    // drawPoints(face.rightEyebrow);
-
-    // fingerPuppet(rightEyeCenterX,rightEyeCenterY);
-    // fingerPuppet(leftEyeCenterX,leftEyeCenterY);
-
-    // fingerPuppet2(mouthLeftX,mouthLeftY);
-
-
-    // drawX(noseTipX,noseTipY); 
-
-    // drawX(face.keypoints[332].x,face.keypoints[332].y);
-    // drawX(face.keypoints[103].x,face.keypoints[103].y);
-
-
-    /*
-    Stop drawing on the face here
-    */
 
   }
-  //------------------------------------------------------
-  // You can make addtional elements here, but keep the face drawing inside the for loop. 
+
 }
