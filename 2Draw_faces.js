@@ -1,14 +1,15 @@
 // ----=  Faces  =----
 /* load images here */
+let bgImg; 
 function prepareInteraction() {
-  //bgImage = loadImage('/images/background.png');
+  bgImage = loadImage('chromakopia mask.png');
 }
 
-let maskImg;
+// let maskImg;
 
-function preload() {
-  maskImg = loadImage('chromakopia mask.png'); // update path if needed
-}
+// function preload() {
+//   maskImg = loadImage('chromakopia mask.png'); // update path if needed
+// }
 
 function drawInteraction(faces, hands) {
 
@@ -77,7 +78,7 @@ Start drawing on the face here
 
 
 imageMode(CENTER);
-image(maskImg, faceCenterX, faceCenterY, faceWidth, faceheight);
+image(bgImg, faceCenterX, faceCenterY, faceWidth, faceheight);
 
 
 noStroke();
